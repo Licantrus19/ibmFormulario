@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/src/public/img/favicon.ico" type="image/x-icon">
+    <title><%=title %></title>
+    <%- include('partials/head')%>
+</head>
+<body>
+    <header class="container justify-content-center align-items-center">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <h1>IBM RPA</h1>
+        </div>
+    </header>
+    <!--Main information-->
+
+    <div class="container vh-10  justify-content-center align-items-center">
+        <div class="card bg-light border-primary textw-white text-center">
+            <div class="card-header">
+                <p>Registrate y conversemos</p>
+                <div class="card-body text-start">
+                    <form action="/" method="post">
+                        <label for="Ayuda"> ¿Cómo podemos ayudarle?</label>
+                        <select name="help" class="form-select mb-3" aria-label="Default select example"=>
+                            <% var options = ["PoC", "Demo", "Visita", "Reunion"]; %>
+                            <% for(var i = 0; i <= 3; i++) { %>
+                                <option value='<%= options[i] %>'><%= options[i] %></option>
+                            <% } %>
+                        </select>
+                        <label for="Contacto"> ¿Cómo prefieres que te contactemos?</label>
+                        <select name="contact" class="form-select mb-3" aria-label="Default select example"=>
+                            <% var options = ["Correo","Teléfono"]; %>
+                            <% for(var i = 0; i <= 1; i++) { %>
+                                <option value='<%= options[i] %>'><%= options[i] %></option>
+                            <% } %>
+                        </select>
+                        <div class="mb-3">
+                            <label for="name">Nombre completo</label>
+                            <input type="name" id="nombre" name="nombre" placeholder="Nombre completo" class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" name="email" placeholder="Ingresar correo" class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="business">Empresa: </label>
+                            <input type="text" id="business" name="business" placeholder="Ingresar empresa" class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Number">Celular:</label>
+                            <input type="tel" id="phone" name="phone" pattern="{9}"> (9xxxxxxxxx)
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-center align-items-center">
+                        <h4>Privacidad</h4>
+                        <p>Entiendo que puedo retirar mi consentimiento de marketing en cualquier momento por medio del envío de una <a href="https://www.ibm.com/account/reg/es-es/signup?formid=urx-42537">solicitud de exclusión.</a> También puedo cancelar la recepción de e-mails haciendo clic en el enlace para darme de baja en cada uno de esos e-mails.Entiendo que puedo encontrar más información ingresando a la <a href="https://www.ibm.com/la-es/privacy">Declaración de Privacidad de IBM.</a> Al enviar este formulario, reconozco que he leído y entendido la Declaración de Privacidad de IBM.</p>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="checkIBM">IBM puede utilizar mis datos de contacto para mantenerme informado de productos, servicios y ofertas (no es obligatoria)</label>
+                            <div class="form-check">
+                                <input class="form-check-input" name="check1" type="checkbox" value="Por correo electrónico" id="correoChecked">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Por correo electrónico
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" name="check2" type="checkbox" value="Por teléfono" id="telefonoCheck" checked>
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Por teléfono
+                                </label>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-block">
+                            Enviar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <%- include('partials/footer')%> -->
+</body>
+</html>
