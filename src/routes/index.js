@@ -34,8 +34,8 @@ router.post('/', (req, res) => {
         document: name
     }).then(response => {
         console.log(response.result);
+        res.redirect('back');
     });
-    res.redirect('back');
 })
 
 export default router

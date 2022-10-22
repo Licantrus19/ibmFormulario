@@ -3,7 +3,6 @@ import { dirname, join } from 'path'
 import { fileURLToPath } from "url"
 import path from 'path'
 
-import favicon from 'serve-favicon'
 import indexRoutes from './routes/index.js'
 
 const app = express()
@@ -13,7 +12,7 @@ app.use(express.urlencoded({ extended: true }))
 
 // console.log(__dirname)
 
-app.use(favicon(path.join(__dirname, 'public', 'img', 'favicon.ico')))
+app.use(express.static(path.join(__dirname, '../public')));
 
 
 app.set('views', join(__dirname, 'views'))
