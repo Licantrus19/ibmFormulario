@@ -5,9 +5,11 @@ USER node
 RUN mkdir -p /home/node/app
 WORKDIR /home/node/app
 
-COPY package*.json ./
+COPY --chown=node package*.json ./
 RUN npm install
 COPY --chown=node . .
 
-EXPOSE 3000
-CMD [ "node", "index.js" ]
+ENV HOST=0.0.0.0 PORT=3000
+
+EXPOSE ${PORT}
+CMD [ "node", "app.js" ]
