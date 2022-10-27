@@ -9,7 +9,5 @@ COPY --chown=node package*.json ./
 RUN npm install
 COPY --chown=node . .
 
-ENV HOST=0.0.0.0 PORT=3000
-
-EXPOSE ${PORT}
+EXPOSE 3000
 CMD [ "node", "app.js" ]
