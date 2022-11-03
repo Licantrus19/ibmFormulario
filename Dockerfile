@@ -1,13 +1,17 @@
 FROM node:16
 
-USER node
+WORKDIR /app
 
-RUN mkdir -p /home/node/app
-WORKDIR /home/node/app
+#Copy package Json Files
+COPY package*.json ./
 
-COPY --chown=node package*.json ./
+#Install files
 RUN npm install
-COPY --chown=node . .
 
-EXPOSE 3000
-CMD [ "node", "app.js" ]
+# Copy source files
+COPY . .
+
+EXPOSE 8000
+
+#Expose the api port
+CMD ["node", "src/index.js" ]
